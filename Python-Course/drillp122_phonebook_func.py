@@ -22,9 +22,19 @@ def ask_quit(self):
 
 def onSelect(self):
     # Calling by self.btn_add, sending to the self.txt_folder widget
-	file_path = askdirectory(title='Please select a directory')
-	self.txt_folder.insert(file_path)
+	file_path = askdirectory()
+	self.txt_folder.insert(0,file_path)
 	
 
 if __name__ == "__main__":
     pass
+
+
+root = Tk()
+root.withdraw()
+
+current_directory = filedialog.askdirectory()
+file_name = "test.txt"
+
+file_path = os.path.join(current_directory,file_name)
+print(file_path)
